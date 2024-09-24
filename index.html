@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Platform</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>E-Commerce Platform</h1>
+        <input type="text" id="search-input" placeholder="Search for products..." oninput="searchProducts()">
+    </header>
+
+    <section id="product-list">
+        <!-- Product cards will be dynamically loaded here -->
+    </section>
+
+    <section id="cart">
+        <h2>Cart</h2>
+        <div id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div id="price-details">
+            <!-- Price details will be dynamically updated -->
+        </div>
+        <button id="place-order" onclick="placeOrder()">Place Order</button>
+    </section>
+
+    <script src="app.js"></script>
+</body>
+</html>
