@@ -1,7 +1,5 @@
 let products = [];
 let cart = [];
-
-// Fetch products from Fake Store API
 fetch('https://fakestoreapi.com/products')
     .then(response => response.json())
     .then(data => {
@@ -9,8 +7,6 @@ fetch('https://fakestoreapi.com/products')
         displayProducts(products);
     })
     .catch(error => console.log('Error:', error));
-
-// Display products
 function displayProducts(products) {
     const productList = document.getElementById('product-list');
     productList.innerHTML = '';
@@ -26,8 +22,6 @@ function displayProducts(products) {
         productList.innerHTML += productCard;
     });
 }
-
-// Add to Cart
 function addToCart(id) {
     const product = products.find(item => item.id === id);
     const cartItem = cart.find(item => item.id === id);
@@ -39,8 +33,6 @@ function addToCart(id) {
     }
     updateCart();
 }
-
-// Update Cart
 function updateCart() {
     const cartItems = document.getElementById('cart-items');
     cartItems.innerHTML = '';
@@ -60,21 +52,15 @@ function updateCart() {
     });
     updatePriceDetails();
 }
-
-// Remove from Cart
 function removeFromCart(id) {
     cart = cart.filter(item => item.id !== id);
     updateCart();
 }
-
-// Increase Quantity
 function increaseQuantity(id) {
     const cartItem = cart.find(item => item.id === id);
     cartItem.quantity++;
     updateCart();
 }
-
-// Decrease Quantity
 function decreaseQuantity(id) {
     const cartItem = cart.find(item => item.id === id);
     if (cartItem.quantity > 1) {
@@ -84,8 +70,6 @@ function decreaseQuantity(id) {
     }
     updateCart();
 }
-
-// Update Price Details
 function updatePriceDetails() {
     const priceDetails = document.getElementById('price-details');
     let totalAmount = 0;
@@ -96,15 +80,11 @@ function updatePriceDetails() {
         <p>Total Amount: ₹${totalAmount.toFixed(2)}</p>
     `;
 }
-
-// Place Order
 function placeOrder() {
     alert("Order placed successfully!");
     cart = [];
     updateCart();
 }
-
-// Search functionality
 function searchProducts() {
     const searchTerm = document.getElementById('search-input').value.toLowerCase();
     const filteredProducts = products.filter(product =>
